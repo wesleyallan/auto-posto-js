@@ -17,6 +17,8 @@ import {
   SaveButton,
 } from './styles';
 
+const TIME_TO_UPDATE_MS = 1000;
+
 export const FuelComponent = ({
   editMode,
   toggleEditMode,
@@ -35,6 +37,18 @@ export const FuelComponent = ({
   useEffect(() => {
     void fetchAndUpdateData();
   }, []);
+
+  useEffect(() => {
+    if (editMode) return;
+
+    const intervalChanged = setInterval(() => {
+      void fetchAndUpdateData();
+    }, TIME_TO_UPDATE_MS);
+
+    return () => {
+      clearInterval(intervalChanged);
+    };
+  }, [editMode]);
 
   function onUpdatePrice(id: number, price: string): void {
     const updatedFuels = fuels?.map((fuel) => {
