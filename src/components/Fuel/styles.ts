@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import imageGasStation from '../../assets/gas-station-white.jpg';
-import { FiSettings } from 'react-icons/fi';
+import { IoMdSettings, IoMdSave } from 'react-icons/io';
 
 export const Container = styled.div`
   max-height: 100vh;
@@ -19,13 +19,21 @@ export const Title = styled.h1`
   font-size: 28px;
 `;
 
-export const SettingsIcon = styled(FiSettings)`
+export const SettingsIcon = styled(IoMdSettings)`
   position: absolute;
   top: 20px;
   right: 20px;
   color: ${(props) => props.theme.colorRed500};
   font-size: 32px;
   cursor: pointer;
+  filter: brightness(0.87);
+  &:hover {
+    filter: brightness(1);
+  }
+`;
+
+export const SaveIcon = styled(IoMdSave)`
+  font-size: 32px;
 `;
 
 export const Panel = styled.section`
@@ -37,6 +45,7 @@ export const Panel = styled.section`
   position: relative;
   left: calc(100vw - 400px);
   margin: 60px;
+  text-align: center;
 `;
 
 export const Box = styled.div`
@@ -56,10 +65,9 @@ export const Row = styled.div`
 `;
 
 export const FuelText = styled.span`
-  color: ${(props) => props.theme.colorBlue200};
+  color: ${(props) => props.theme.colorGray100};
   font-size: 1.5rem;
   font-weight: bold;
-  text-align: center;
 `;
 
 export const FuelPrice = styled.span`
@@ -67,4 +75,41 @@ export const FuelPrice = styled.span`
   color: ${(props) => props.theme.colorYellow500};
   font-size: 3.5rem;
   font-weight: bold;
+`;
+
+export const InfoText = styled.span`
+  color: ${(props) => props.theme.colorBlue200};
+  font-size: 1.2rem;
+`;
+
+export const SaveButton = styled.button`
+  display: flex;
+  align-items: center;
+  background-color: ${(props) => props.theme.colorPurple500};
+  border: none;
+  color: ${(props) => props.theme.colorWhite};
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  filter: brightness(0.87);
+  &:hover {
+    filter: brightness(1);
+  }
+  & > span {
+    margin-left: 5px;
+  }
+`;
+
+export const FuelInput = styled.input`
+  font-family: 'digital-7 mono', sans-serif;
+  color: ${(props) => props.theme.colorYellow500};
+  font-size: 3.5rem;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  outline: none;
 `;
