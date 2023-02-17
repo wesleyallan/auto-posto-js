@@ -15,6 +15,7 @@ import {
   FuelInput,
   InfoText,
   SaveButton,
+  NavBar,
 } from './styles';
 
 const TIME_TO_UPDATE_MS = 1000;
@@ -86,49 +87,49 @@ export const FuelComponent = ({
   }
 
   return (
-    <div>
-      <Container>
+    <Container>
+      <NavBar>
         <Title>Auto Posto JS</Title>
         <SettingsIcon onClick={toggleEditMode} />
-        <Panel>
-          {editMode && (
-            <Row>
-              <InfoText>
-                <MdEdit />
-                Altere o preço do item e salve
-              </InfoText>
-            </Row>
-          )}
-          {fuels?.map((fuel) => (
-            <Row key={fuel.id}>
-              <Box>
-                <FuelText>{fuel.name}</FuelText>
-              </Box>
-              <Box>
-                {editMode ? (
-                  <FuelInput
-                    type="number"
-                    value={fuel.price}
-                    onChange={(ev) => {
-                      onUpdatePrice(fuel.id, ev.target.value);
-                    }}
-                  />
-                ) : (
-                  <FuelPrice>{fuel.price}</FuelPrice>
-                )}
-              </Box>
-            </Row>
-          ))}
-          {editMode && (
-            <Row>
-              <SaveButton onClick={onSave}>
-                <SaveIcon />
-                <span>Salvar</span>
-              </SaveButton>
-            </Row>
-          )}
-        </Panel>
-      </Container>
-    </div>
+      </NavBar>
+      <Panel>
+        {editMode && (
+          <Row>
+            <InfoText>
+              <MdEdit />
+              Altere o preço do item e salve
+            </InfoText>
+          </Row>
+        )}
+        {fuels?.map((fuel) => (
+          <Row key={fuel.id}>
+            <Box>
+              <FuelText>{fuel.name}</FuelText>
+            </Box>
+            <Box>
+              {editMode ? (
+                <FuelInput
+                  type="number"
+                  value={fuel.price}
+                  onChange={(ev) => {
+                    onUpdatePrice(fuel.id, ev.target.value);
+                  }}
+                />
+              ) : (
+                <FuelPrice>{fuel.price}</FuelPrice>
+              )}
+            </Box>
+          </Row>
+        ))}
+        {editMode && (
+          <Row>
+            <SaveButton onClick={onSave}>
+              <SaveIcon />
+              <span>Salvar</span>
+            </SaveButton>
+          </Row>
+        )}
+      </Panel>
+    </Container>
   );
 };

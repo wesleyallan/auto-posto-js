@@ -1,4 +1,6 @@
 export const theme = {
+  background: '#191A1C',
+  foreground: '#191A1C',
   colorPurple500: '#3F1D38',
   colorPurple200: '#DFCCDA',
   colorBlue200: '#8ab7da',
@@ -8,4 +10,5 @@ export const theme = {
   colorWhite: '#FBFBFF',
   colorYellow500: '#FCAD48',
   colorRed500: '#FF4F66',
+  boxShadowColor: 'rgba(0, 0, 0, 0.8)',
 };
